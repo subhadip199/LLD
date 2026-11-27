@@ -1,65 +1,49 @@
-# Low-Level Design (LLD)
+# Low-Level Design (LLD) in Java
 
-A Java repository for learning **Low-Level Design, SOLID principles, and common object-oriented design patterns** through small, runnable examples.
+A hands-on repository for learning **object-oriented design, SOLID principles, and classic design patterns** through small Java examples.
 
-## Repository Structure
+The goal is to understand not only *what* a pattern is, but also **when to use it, how the classes collaborate, and what trade-offs it introduces**.
 
-```text
-LLD/
-├── src/
-│   ├── absFactory/             # Abstract Factory pattern
-│   ├── adapter/                # Adapter pattern
-│   ├── builder/                # Builder pattern
-│   ├── chainOfResponsibility/  # Chain of Responsibility pattern
-│   ├── decorator/              # Decorator pattern
-│   ├── factory/                # Factory pattern
-│   ├── observer/               # Observer pattern
-│   ├── prototype/              # Prototype pattern
-│   ├── proxy/                  # Proxy pattern variants
-│   ├── singleton/              # Singleton pattern
-│   ├── solid/                  # SOLID principles
-│   └── strategy/               # Strategy pattern
-├── .gitignore
-└── LLD.iml                     # IntelliJ IDEA module file
-```
+## What you'll find
 
-## Topics Covered
+### SOLID principles
 
-### SOLID Principles
-
-| Principle | Package |
+| Principle | Focus |
 |---|---|
-| Single Responsibility Principle | `src/solid/srp` |
-| Open/Closed Principle | `src/solid/ocp` |
-| Liskov Substitution Principle | `src/solid/lsp` |
-| Interface Seg Segregation Principle | `src/solid/isp` |
-| Dependency Inversion Principle | `src/solid/dip` |
+| Single Responsibility (SRP) | Keep a class focused on one responsibility |
+| Open/Closed (OCP) | Extend behavior without repeatedly modifying stable code |
+| Liskov Substitution (LSP) | Preserve expected behavior when substituting implementations |
+| Interface Segregation (ISP) | Prefer focused interfaces over “fat” interfaces |
+| Dependency Inversion (DIP) | Depend on abstractions rather than concrete details |
 
-### Design Patterns
+Examples are under `src/solid/`.
 
-- **Abstract Factory** — `src/absFactory`
-- **Adapter** — `src/adapter`
-- **Builder** — `src/builder`
-- **Chain of Responsibility** — `src/chainOfResponsibility`
-- **Decorator** — `src/decorator`
-- **Factory** — `src/factory`
-- **Observer** — `src/observer`
-- **Prototype** — `src/prototype`
-- **Proxy** — protection, remote, and virtual proxy examples in `src/proxy`
-- **Singleton** — `src/singleton`
-- **Strategy** — `src/strategy`
+### Design patterns
 
-## Prerequisites
+| Pattern | Example location |
+|---|---|
+| Abstract Factory | `src/absFactory/` |
+| Adapter | `src/adapter/` |
+| Builder | `src/builder/` |
+| Chain of Responsibility | `src/chainOfResponsibility/` |
+| Decorator | `src/decorator/` |
+| Factory | `src/factory/` |
+| Observer | `src/observer/` |
+| Prototype | `src/prototype/` |
+| Proxy | `src/proxy/` |
+| Singleton | `src/singleton/` |
+| Strategy | `src/strategy/` |
 
-- Java Development Kit (JDK) 8 or later
-- One of the following:
-  - IntelliJ IDEA
-  - Eclipse
-  - A Java-compatible terminal and compiler
+Each example is organized by topic. Check the package's `Main` class to see how the example is exercised.
 
-## Getting Started
+## Getting started
 
-### Clone the Repository
+### Requirements
+
+- JDK 8 or later
+- IntelliJ IDEA, Eclipse, or a terminal with the Java compiler
+
+### Clone the repository
 
 ```bash
 git clone https://github.com/subhadip199/LLD.git
@@ -67,56 +51,53 @@ cd LLD
 git switch master
 ```
 
-### Open in IntelliJ IDEA
+### Run an example
 
-1. Open IntelliJ IDEA.
-2. Select **Open**.
-3. Choose the repository directory.
-4. Open `LLD.iml` or import the project.
-5. Run the `Main` class inside any example package.
-
-### Compile and Run from the Terminal
-
-Examples can be compiled and run using their package names. For example:
+From the repository root, compile the Java files in the package and run its main class. For example:
 
 ```bash
 javac src/singleton/*.java
 java -cp src singleton.Main
 ```
 
-Another example:
+Or:
 
 ```bash
 javac src/strategy/*.java
 java -cp src strategy.Main
 ```
 
-> The package names and `Main` classes vary by example. Compile all files from the package you want to run.
+The examples are independent; package names and entry-point class names may vary. If a package contains subpackages or additional source files, compile the relevant files together.
 
-## Learning Approach
+## Suggested learning path
 
-Each package demonstrates a focused design concept with a small executable example. Suggested areas to study:
+1. **Start with the problem.** Read the example's `Main.java` and identify what needs to change or vary.
+2. **Trace the collaboration.** Follow object creation and method calls between the classes.
+3. **Connect the design to SOLID.** Ask which responsibility or dependency the design is trying to improve.
+4. **Test a change.** Add a new behavior or implementation and observe which existing classes need modification.
+5. **Review the trade-offs.** Consider added indirection, complexity, flexibility, and testability.
 
-1. Understand the problem in the example's `Main.java`.
-2. Identify the responsibilities of each class.
-3. Trace object creation and method calls.
-4. Modify the example to see how the design responds to change.
-5. Compare similar patterns, such as Factory and Abstract Factory.
+For interview practice, try explaining each example in this order: **problem → design → class responsibilities → collaboration → trade-offs**.
 
-## Language
+## Repository layout
 
-- Java — 100%
+```text
+src/
+├── solid/
+└── <pattern packages>/
+```
 
-## License
-
-No license is currently specified for this repository.
+The source tree is organized by principle or pattern. Browse the package folders for the corresponding Java examples.
 
 ## Contributing
 
-Contributions, improvements, and additional Low-Level Design examples are welcome. When contributing:
+Ideas for additional patterns, clearer examples, and improvements are welcome.
 
-1. Create a new branch.
-2. Place an example in an appropriate package under `src`.
-3. Keep examples focused and easy to understand.
-4. Include a `Main` class that demonstrates the concept.
-5. Open a pull request.
+- Keep each example focused on one concept.
+- Prefer readable, idiomatic Java.
+- Include a small runnable demonstration when appropriate.
+- Explain the design decision and any important trade-offs.
+
+## License
+
+No license is currently specified.
